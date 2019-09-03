@@ -26,12 +26,18 @@ class MainContainer extends Component {
 
   onFilterChange = event => {
     let filterValue = event.currentTarget.value;
-    let filteredStocks = this.state.stockIndex.filter(stock => {
-      return stock.type === filterValue;
-    });
-    this.setState({
-      showStocks: filteredStocks
-    });
+    if (filterValue === "all") {
+      this.setState({
+        showStocks: this.state.stockIndex
+      });
+    } else {
+      let filteredStocks = this.state.stockIndex.filter(stock => {
+        return stock.type === filterValue;
+      });
+      this.setState({
+        showStocks: filteredStocks
+      });
+    }
   };
 
   onBuyStock = e => {
@@ -69,10 +75,21 @@ class MainContainer extends Component {
     // debugger;
   };
 
+  onSortAlphabetically = () => {
+    debugger;
+  };
+
+  onSortByPrice = () => {
+    debugger;
+  };
+
   render() {
     return (
       <div>
-        <SearchBar onFilterChange={this.onFilterChange} />
+        <SearchBar
+          onFilterChange={this.onFilterChange}
+          sort={this.onSortAlphabetically}
+        />
 
         <div className="row">
           <div className="col-8">

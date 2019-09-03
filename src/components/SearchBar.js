@@ -8,8 +8,8 @@ const SearchBar = props => {
         <input
           type="radio"
           value="Alphabetically"
-          checked={null}
-          onChange={null}
+          checked={}
+          onChange={props.sort}
         />
         Alphabetically
       </label>
@@ -25,6 +25,7 @@ const SearchBar = props => {
           <option value="Tech">Tech</option>
           <option value="Sportswear">Sportswear</option>
           <option value="Finance">Finance</option>
+          <option value="all">ALL</option>
         </select>
       </label>
     </div>
